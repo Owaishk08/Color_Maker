@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Color_Maker.MainPage">
+
+    <ContentPage.Resources>
+        <Color x:Key="Primary">white</Color>
+        <Color x:Key="Secondary">black</Color>
+        <Color x:Key="Tertiary">WhiteSmoke</Color>
+    </ContentPage.Resources>
+    <Grid x:Name="Container" BackgroundColor="Black">
+        <VerticalStackLayout>
+            <Frame Margin="10,40,10,0" VerticalOptions="Center" BackgroundColor="White">
+                <VerticalStackLayout Spacing="10" VerticalOptions="Center">
+                    <Label FontAttributes="Bold"
+                           FontSize="Large"
+                           Text="Color Maker"
+                           TextColor="Black"
+                           HorizontalOptions="Center">
+                    </Label>
+
+                    <Label Text="Red Value"
+                           TextColor="Black"
+                           FontSize="Medium">
+                    </Label>
+                    <Slider x:Name="sldRed"
+                            MinimumTrackColor="{StaticResource Secondary}"
+                            MaximumTrackColor="{StaticResource Tertiary}"
+                            ThumbColor="{StaticResource Primary}"
+                            ValueChanged="Slider_ValueChanged"/>
+
+                    <Label Text="Green Value"
+                           TextColor="Black"
+                           FontSize="Medium">
+                    </Label>
+                    <Slider x:Name="sldGreen"
+                            MinimumTrackColor="{StaticResource Secondary}"
+                            MaximumTrackColor="{StaticResource Tertiary}"
+                            ThumbColor="{StaticResource Primary}"
+                            ValueChanged="Slider_ValueChanged"/>
+
+                    <Label Text="Blue Value"
+                           TextColor="Black"
+                           FontSize="Medium">
+                    </Label>
+                    <Slider x:Name="sldBlue"
+                            MinimumTrackColor="{StaticResource Secondary}"
+                            MaximumTrackColor="{StaticResource Tertiary}"
+                            ThumbColor="{StaticResource Primary}"
+                            ValueChanged="Slider_ValueChanged"/>
+
+                    <Frame CornerRadius="25" BackgroundColor="White" HorizontalOptions="Center">
+                        <HorizontalStackLayout>
+                            <Label x:Name="lblHex"
+                               Text="HEX Value #0000"
+                               TextColor="Black"
+                               VerticalOptions="Center"
+                               HorizontalTextAlignment="End"/>
+                            <ImageButton Margin="10,0,0,0"
+                                         HeightRequest="25"
+                                         WidthRequest="25"
+                                         Source="copy.png"/>
+                        </HorizontalStackLayout>
+                    </Frame>
+
+                    <Button x:Name="btnRandom"
+                            Text="Generate Random Color"
+                            TextColor="Black"
+                            FontSize="Small"
+                            BackgroundColor="{StaticResource Primary}"
+                            Clicked="btnRandom_Clicked"/>
+                </VerticalStackLayout>
+            </Frame>
+        </VerticalStackLayout>
+    </Grid>
+
+</ContentPage>
