@@ -1,10 +1,13 @@
-﻿using System.Diagnostics;
+using CommunityToolkit.Maui.Alerts;
+using CommunityToolkit.Maui.Core;
+using System.Diagnostics;
 
 namespace Color_Maker
 {
     public partial class MainPage : ContentPage
     {
         bool isRandom;
+        string hexValue;
 
         public MainPage()
         {
@@ -29,7 +32,8 @@ namespace Color_Maker
             Debug.WriteLine(color.ToString());
             btnRandom.Background = color;
             Container.BackgroundColor = color;
-            lblHex.Text = color.ToHex();
+            hexValue = color.ToHex();
+            lblHex.Text = hexValue; 
 
         }
 
@@ -45,5 +49,13 @@ namespace Color_Maker
             sldBlue.Value = color.Blue;
             isRandom = false;
         }
+         private async void ImageButton_Clicked(object sender, EventArgs e)
+         {
+             await Clipboard.SetTextAsync(hexValue);
+             var toast = Toast.Make("Color Copied",                      // By Using Community Tool Nuget
+                         ToastDuration.Short, 
+                         12);
+             await toast.Show();
+         }
     }
 }
